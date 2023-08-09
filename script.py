@@ -63,7 +63,7 @@ def clean_file_naming(filename, prefix, start_number):
     cleaned_name = re.sub(r'\s+', ' ', cleaned_name)
     # Rename the file using the specified naming format
     base, extension = os.path.splitext(cleaned_name)
-    cleaned_name = f"{prefix}{start_number:03}{extension}"
+    cleaned_name = f"{prefix} {start_number:03}{extension}"
     return cleaned_name
 
 def process_files(directory, prefix, start_number, quality, max_height):
