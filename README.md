@@ -34,5 +34,5 @@ Python tool optimized for manga `.cbz` files. It efficiently compresses, resizes
 1. Run the script:
 
    ```bash
-   python cbz_processor.py
+   python script.py
    ```
