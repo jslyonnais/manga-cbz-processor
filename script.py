@@ -33,6 +33,8 @@ def compress_cbz(file_path, output_path=None, quality=80, max_height=1024):
                     if file.lower().endswith(('.png', '.jpg', '.jpeg')):
                         img_path = os.path.join(root, file)
                         with Image.open(img_path) as img:
+                            if img.mode == 'P':
+                                img = img.convert('RGB')
                             # Check if the image height is greater than the max height
                             if img.height > max_height:
                                 aspect_ratio = img.width / img.height
