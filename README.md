@@ -29,6 +29,8 @@ Python tool optimized for manga `.cbz` files. It efficiently compresses, resizes
    pip install Pillow
    ```
 
+1. Put all your `.cbz` files in the `input` folder.
+
 1. Run the script:
 
    ```bash

@@ -67,5 +67,5 @@ def process_files(directory):
                 print(f'Renamed {filename} to {new_filename}')
 
 # Specify the directory containing the files to process
-directory_path = "./files/"
+directory_path = "./input/"
 process_files(directory_path)
