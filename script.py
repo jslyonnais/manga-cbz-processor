@@ -37,10 +37,18 @@ def compress_cbz(file_path, output_path=None, quality=80, max_height=1024):
 
     print(f"Compressed {file_path}")
 
-def remove_parenthesis_content(filename):
-    # This regex pattern matches anything inside parentheses, including the parentheses themselves.
-    pattern = r'\(.*?\)'
-    return re.sub(pattern, '', filename).strip()
+def clean_file_naming(filename):
+    # Remove content in parentheses
+    cleaned_name = re.sub(r'\(.*?\)', '', filename)
+    
+    # Remove multiple consecutive spaces
+    cleaned_name = re.sub(r'\s+', ' ', cleaned_name)
+    
+    # Remove spaces before the file extension
+    base, extension = os.path.splitext(cleaned_name)
+    cleaned_name = base.rstrip() + extension
+
+    return cleaned_name
 
 def process_files(directory):
     # Iterate over each file in the directory
@@ -51,7 +59,7 @@ def process_files(directory):
             compress_cbz(filepath)
             
             # Rename the file after removing content inside parentheses
-            new_filename = remove_parenthesis_content(filename)
+            new_filename = clean_file_naming(filename)
             new_file_path = os.path.join(directory, new_filename)
             
             if new_file_path != filepath:
